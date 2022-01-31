@@ -1,0 +1,97 @@
+<div class="container">
+  <h3 class="title">My Reactive Form</h3>\bokip0-
+  <br><br>
+  <form [formGroup] = "userForm" (ngSubmit) = "onSubmit()">
+    <div class="row">
+      <div class="row col-sm-5">
+        <div class="form-group">
+          <label for="firstname"> First Name</label>
+          <input type="text" id="firstname" name="firstname" 
+          formControlName = "firstname"
+          class="form-control" autocomplete="off">
+          <span class="help-block"
+            *ngIf="!userForm.get('firstname').valid && userForm.get('firstname').touched">Please Enter valid name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastname"> Last Name</label>
+          <input type="text" id="lastname" name="lastname" 
+          formControlName = "lastname"
+          class="form-control" autocomplete="off">
+          
+        </div>
+
+        <div class="form-group">
+          <label for="email"> Email</label>
+          <input type="text" id="email" name="email"
+          formControlName = "email"
+           class="form-control" autocomplete="off">
+           <span class="help-block"
+           *ngIf="!userForm.get('email').valid && userForm.get('email').touched">Please Enter valid Email</span>
+        </div>
+
+        <div class="form-group">
+          <label for="gender" > Gender</label> &nbsp;&nbsp;&nbsp;
+          <input type="radio" value="male" name="gender" formControlName = "gender"> Male
+          <input type="radio" value="female" name="gender" formControlName = "gender"> Female
+        </div>
+
+        <div class="form-group">
+          <label for="email"> Married</label>&nbsp;&nbsp;&nbsp;
+          <input type="checkbox"  name="ismarried" formControlName = "ismarried">
+        </div>
+
+    </div>
+      <div class="row col-sm-2"></div>
+
+      <div class="row">
+        <div class="row col-sm-5" formGroupName = "address">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="country"> Country</label>
+              <input type="text" id="country" name="country" 
+              formControlName = "country"
+              class="form-control" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+              <label for="city"> City</label>
+              <input type="text" id="city" name="city"
+              formControlName = "city"
+               class="form-control" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+              <label for="street"> Street</label>
+              <input type="text" id="street" name="street" 
+              formControlName = "street"
+              class="form-control" autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+              <label for="pincode"> Pin Code</label>
+              <input type="text" id="pincode" name="pincode"
+              formControlName = "pincode"
+               class="form-control" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <button type="submit" class=" btn btn-info"  [disabled] = "!userForm.valid">submit</button>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<hr>
+<app-dynamicomponent></app-dynamicomponent>
+<hr> 
+
+
+<app-matform></app-matform>
+<hr> 
+<app-bankform></app-bankform>
